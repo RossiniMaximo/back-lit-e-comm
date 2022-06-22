@@ -2,7 +2,7 @@ import Cors from "cors";
 
 // Initializing the cors middleware
 export const cors = Cors({
-  methods: ["GET", "POST", "PATCH", "DELETE", "HEAD"],
+  methods: ["GET", "POST", "PATCH", "DELETE", "HEAD", "OPTIONS"],
 });
 
 // Helper method to wait for a middleware to execute before continuing
