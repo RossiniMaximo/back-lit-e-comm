@@ -2,8 +2,10 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import methods from "micro-method-router";
 import { sendCode } from "controllers/auth";
 import { updatePassword } from "controllers/auth";
+import { cors, runMiddleware } from "lib/middlewares/cors";
 
 async function postHandler(req: NextApiRequest, res: NextApiResponse) {
+  await runMiddleware(req, res, cors);
   if (!req.body) {
     res.status(400).send({ Error: "body missing" });
   }
@@ -13,6 +15,7 @@ async function postHandler(req: NextApiRequest, res: NextApiResponse) {
 }
 
 async function patchHandler(req: NextApiRequest, res: NextApiResponse) {
+  await runMiddleware(req, res, cors);
   if (!req.body) {
     res.status(400).send({ Error: "Body missing" });
   }

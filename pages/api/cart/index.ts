@@ -3,8 +3,10 @@ import methods from "micro-method-router";
 import { authMiddleware } from "lib/middlewares/authmiddleware";
 import { addToCart, getCart } from "controllers/cart";
 import { deleteItemFromCart } from "controllers/cart";
+import { cors, runMiddleware } from "lib/middlewares/cors";
 
 async function handlePost(req: NextApiRequest, res: NextApiResponse, token) {
+  await runMiddleware(req, res, cors);
   if (!req.body.id) {
     res.status(400).send({ Error: "product ID is  needed" });
   }
