@@ -12,7 +12,7 @@ module.exports = {
           { key: "Access-Control-Allow-Credentials", value: "true" },
           {
             key: "Access-Control-Allow-Origin",
-            value: "*",
+            value: "https://maxis-e-comm.herokuapp.com/",
           },
           {
             key: "Access-Control-Allow-Methods",
