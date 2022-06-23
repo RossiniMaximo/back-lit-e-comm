@@ -24,6 +24,8 @@ export async function sendAuthMail(email: string, code: number, expiration) {
       }
     }
   );
+  console.log("send : ", send);
+
   if (send) {
     console.log("Email sent");
 
