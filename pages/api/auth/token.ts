@@ -1,10 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import methods from "micro-method-router";
 import { createToken } from "controllers/auth";
-import { cors } from "lib/middlewares/cors";
 
 async function postHandler(req: NextApiRequest, res: NextApiResponse) {
-  await cors(req, res);
   const { email, code } = req.body;
   console.log("type of code", typeof code);
 
