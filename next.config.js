@@ -12,7 +12,7 @@ module.exports = {
           { key: "Access-Control-Allow-Credentials", value: "true" },
           {
             key: "Access-Control-Allow-Origin",
-            value: "https://maxis-e-comm.herokuapp.com/:path*",
+            value: "https://maxis-e-comm.herokuapp.com",
           },
           {
             key: "Access-Control-Allow-Methods",
@@ -24,14 +24,6 @@ module.exports = {
               "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version",
           },
         ],
-      },
-    ];
-  },
-  async rewrites() {
-    return [
-      {
-        source: "/api/:path*",
-        destination: "https://api.example.com/:path*",
       },
     ];
   },

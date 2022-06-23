@@ -2,8 +2,14 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import methods from "micro-method-router";
 import { sendCode } from "controllers/auth";
 import { updatePassword } from "controllers/auth";
+import NextCors from "nextjs-cors";
 
 async function postHandler(req: NextApiRequest, res: NextApiResponse) {
+  await NextCors(req, res, {
+    methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
+    origin: "https://maxis-e-comm.herokuapp.com",
+    optionsSuccessStatus: 200,
+  });
   if (!req.body) {
     res.status(400).send({ Error: "body missing" });
   }
