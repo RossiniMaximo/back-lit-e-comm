@@ -6,7 +6,7 @@ export function middleware(req: NextRequest) {
       status: 204,
       headers: {
         "Access-Control-Allow-Credentials": "true",
-        "Access-Control-Allow-Origin": "https://maxis-e-comm.herokuapp.com/",
+        "Access-Control-Allow-Origin": "https://maxis-e-comm.herokuapp.com",
         "Access-Control-Allow-Methods": "GET,OPTIONS,PATCH,DELETE,POST,PUT",
         "Access-Control-Allow-Headers": req.headers.get(
           "Access-Control-Request-Headers"
