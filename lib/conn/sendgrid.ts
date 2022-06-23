@@ -15,7 +15,7 @@ export async function sendAuthMail(email: string, code: number, expiration) {
     </h3>
     </div>`,
   };
-  const send = sgMail.send(msg).then(
+  /*  const send = sgMail.send(msg).then(
     () => {},
     (error) => {
       console.error(error);
@@ -24,11 +24,18 @@ export async function sendAuthMail(email: string, code: number, expiration) {
       }
     }
   );
-  console.log("send : ", send);
-
-  if (send) {
-    console.log("Email sent");
-
-    return true;
+  console.log("send : ", send); */
+  try {
+    const send = await sgMail.send(msg);
+    if (send) {
+      console.log("send : ", send);
+      console.log("Email sent");
+      return true;
+    }
+  } catch (error) {
+    console.error(error);
+    if (error.response) {
+      console.error(error.response);
+    }
   }
 }
