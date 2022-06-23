@@ -3,6 +3,8 @@ sgMail.setApiKey(process.env.SENDGRID_KEY);
 export { sgMail };
 
 export async function sendAuthMail(email: string, code: number, expiration) {
+  console.log("email and code", email, code);
+
   const msg = {
     to: email,
     from: "maximorossini2016@gmail.com",
@@ -23,6 +25,8 @@ export async function sendAuthMail(email: string, code: number, expiration) {
     }
   );
   if (send) {
+    console.log("Email sent");
+
     return true;
   }
 }
